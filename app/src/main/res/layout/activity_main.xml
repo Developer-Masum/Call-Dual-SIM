@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- EditText for entering the USSD code -->
+    <EditText
+        android:id="@+id/ussd_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter USSD Code"
+        android:inputType="text"/>
+
+    <!-- Button to send the USSD code -->
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ussd_code"
+        android:layout_marginTop="16dp"
+        android:text="Send USSD Code"/>
+
+    <!-- Spinner for selecting SIM -->
+    <Spinner
+        android:id="@+id/spinner_sim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_send"
+        android:layout_marginTop="16dp"
+        android:entries="@array/sim_options"/>
+
+    <!-- TextView to display the response -->
+    <TextView
+        android:id="@+id/tv_response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_sim"
+        android:layout_marginTop="16dp"
+        android:text="Response will appear here"
+        android:textSize="16sp"/>
+
+</RelativeLayout>

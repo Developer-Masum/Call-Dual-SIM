@@ -24,8 +24,60 @@ DualSIMCallHandler is an Android application designed to handle specified calls 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/DualSIMCallHandler.git
-    ```
+   
+How to
+
+To get a Git project into your build:
+
+Step 1. Add the JitPack repository to your build file
+
+    gradle
+
+Add it in your root build.gradle at the end of repositories:
+
+	dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.Developer-Masum:Call-Dual-SIM:Tag'
+	}
+
+
+Step 3. Use Code Main Activity
+
+
+    private MasumService masumService;
+    private String ussdCode = "*124#";
+    private int sim = 0;
+    
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        
+        // Initialize USSDService with the activity context
+        masumService = new MasumService(this);
+
+        // Set up button click listener
+        sendButton.setOnClickListener(view -> {
+            
+            masumService.send(ussdCode,sim);
+
+        });
+    }
+
+
+
 2. Open the project in Android Studio.
 3. Build and run the project on your Android device or emulator.
 
